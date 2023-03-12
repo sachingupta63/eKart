@@ -38,11 +38,11 @@ const ProfileScreen = () => {
         } else {
             if (!user.name) {
                 dispatch(getUserDetails('profile'))
-                dispatch(listMyOrder())
             } else {
                 setName(user.name)
                 setEmail(user.email)
             }
+            dispatch(listMyOrder())
         }
 
     }, [dispatch, navigate, userInfo, user])

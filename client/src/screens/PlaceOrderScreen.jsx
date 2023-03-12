@@ -6,7 +6,8 @@ import { } from '../actions/cartAction'
 import CheckOutSteps from '../components/CheckOutSteps'
 import Message from '../components/Message'
 import { Link } from 'react-router-dom'
-import { createOrder } from '../actions/orderActions'
+import { createOrder, getOrderDetails, } from '../actions/orderActions'
+
 
 const PlaceOrderScreen = () => {
 
@@ -29,6 +30,7 @@ const PlaceOrderScreen = () => {
 
     useEffect(() => {
         if (success) {
+            dispatch(getOrderDetails(order._id))
             navigate(`/order/${order._id}`)
         }
     }, [navigate, dispatch, success,])

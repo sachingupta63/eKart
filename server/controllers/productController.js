@@ -3,7 +3,7 @@ import asyncHandler from 'express-async-handler'
 
 //@Route GET api/products/ public
 const getProducts = asyncHandler(async (req, res) => {
-    const pageSize = 2
+    const pageSize = 10
 
     const page = Number(req.query.pageNumber) || 1
 

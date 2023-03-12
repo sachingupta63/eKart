@@ -55,10 +55,12 @@ const OrderScreen = () => {
             }
             document.body.appendChild(script)
         }
+
         if (!order || successPay || successDeliver) {
             dispatch({ type: ORDER_DELIVER_RESET })
             dispatch({ type: ORDER_PAY_RESET })
             dispatch(getOrderDetails(id))
+
         } else if (!order.isPaid) {
             if (!window.paypal) {
                 addPayPalScript()
@@ -95,7 +97,7 @@ const OrderScreen = () => {
                             {order.shippingAddress.postalCode},{' '}
                             {order.shippingAddress.country}
                         </p>
-                        {order.isDelivered ? (<Message variant='success'>Delivered on {order.deliveredAr}</Message>) : (<Message variant='danger'>Not Delivered</Message>)}
+                        {order.isDelivered ? (<Message variant='success'>Delivered on {new Date(order.deliveredAt).toLocaleString('en-GB')}</Message>) : (<Message variant='danger'>Not Delivered</Message>)}
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <h2>Payment Method</h2>
