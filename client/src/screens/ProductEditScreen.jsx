@@ -79,7 +79,7 @@ const ProductEditScreen = () => {
                 }
             }
             console.log('Hello 1')
-            const { data } = await axios.post(`http://localhost:5000/api/uploads`, formData, config)
+            const { data } = await axios.post(`https://ekart-a2gt.onrender.com/api/uploads`, formData, config)
             console.log('Hello 2')
             setImage(data)
             setUploading(false)

@@ -17,7 +17,7 @@ const ProductScreen = ({ match }) => {
     const { id } = useParams();
     const [qty, setQty] = useState(1)
     const [rating, setRtaing] = useState(0)
-    const [comment, setComment] = useState(1)
+    const [comment, setComment] = useState()
     const navigate = useNavigate()
 
 
@@ -75,7 +75,7 @@ const ProductScreen = ({ match }) => {
                                     <ListGroup.Item>
                                         <Rating value={product.rating} text={`${product.numReviews} reviews`} />
                                     </ListGroup.Item>
-                                    <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+                                    <ListGroup.Item>Price: <i class="fa fa-inr"></i>{product.price}</ListGroup.Item>
                                     <ListGroup.Item>Description: {product.description}</ListGroup.Item>
                                 </ListGroup>
                             </Col>
@@ -86,7 +86,7 @@ const ProductScreen = ({ match }) => {
                                             <Row>
                                                 <Col>Price:</Col>
                                                 <Col>
-                                                    <strong>${product.price}</strong></Col>
+                                                    <strong><i class="fa fa-inr"></i>{product.price}</strong></Col>
                                             </Row>
                                         </ListGroup.Item>
 
@@ -158,7 +158,7 @@ const ProductScreen = ({ match }) => {
                                             </Form.Group>
                                             <Form.Group controlId='comment' className='mb-3'>
                                                 <Form.Label>Comment</Form.Label>
-                                                <Form.Control as='textarea' row='3' value={comment} onChange={(e) => setComment(e.target.value)}></Form.Control>
+                                                <Form.Control as='textarea' row='3' placeholder='Write a review' value={comment} onChange={(e) => setComment(e.target.value)}></Form.Control>
 
                                             </Form.Group>
                                             <Button type='submit' variant='primary'>Submit</Button>
