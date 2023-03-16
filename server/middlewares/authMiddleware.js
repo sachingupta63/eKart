@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import asyncHandler from 'express-async-Handler'
+import asyncHandler from 'express-async-handler'
 import User from "../models/userModel.js";
 
 //authentication custom middleware
